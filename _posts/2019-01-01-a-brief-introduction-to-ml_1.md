@@ -7,7 +7,12 @@ excerpt: This is a rather dense book by *Osvaldo Simeone* which favors readers w
 
 ---
 
-# A Brief Introduction to Machine Learning for Engineers 1
+
+## All posts
+
+- [Chapter 2: Part I]({{ site.url }}/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html)
+- [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html)
+- [Chapter 2: Part III]({{ site.url }}/ml/2019/01/22/a-brief-introduction-to-ml_2_iii.html)
 
 
 This is a rather dense book by *Osvaldo Simeone* which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of *Pattern Recognition and Machine Learning* by Christopher Bishop.
@@ -56,3 +61,8 @@ In addition, learning from data is executed according to following settings:
 Algorithms in this book are introduced based on the theoretical arguments based on information theoretic performance metrics.
 
 **Note:** I strongly suggest the reader to open up a [kaggle](https://www.kaggle.com/) account, because all jupyter notebooks in this site are publicly published there and can be used easily without any hassle of system specific installments or requirements.
+
+
+---
+
+ |Next post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html)|

@@ -251,4 +251,6 @@ plt.show()
 
 ![png](/img/abitmlfe/ml_vs_map_results.png)
 
+---
 
+| Previous post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/01/a-brief-introduction-to-ml_1.html) |  Next post: [Chapter 2: Part III]({{ site.url }}/ml/2019/01/22/a-brief-introduction-to-ml_2_iii.html) |

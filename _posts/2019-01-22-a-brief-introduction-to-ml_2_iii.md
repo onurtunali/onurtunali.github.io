@@ -212,12 +212,7 @@ plt.show()
 
 ```
 
-     Training size: 80 and test size: 20
-    (2, 3)
-
-
-
-![png](bayesian_results.png)
+![png](/img/abitmlfe/bayesian_results.png)
 
 
 ### Marginal likelihood
@@ -387,9 +382,6 @@ plt.show()
 
 ```
 
-     Training size: 16 and test size: 4
-
-
 
 ![png](/img/abitmlfe/marginal_likelihood_1.png)
 
@@ -397,3 +389,7 @@ plt.show()
 
 ![png](/img/abitmlfe/marginal_likelihood_2.png)
 
+
+---
+
+| Previous post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/015/a-brief-introduction-to-ml_2_ii.html) |
