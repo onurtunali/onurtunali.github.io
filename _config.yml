@@ -19,6 +19,6 @@ scholar_username: https://scholar.google.com.tr/citations?user=tz3gufIAAAAJ&hl=e
 # Build settings
 markdown: kramdown
 kramdown:
-  math_engine: mathjax
+mathjax: true
 encoding: utf-8
 plugins: [jekyll-paginate]
