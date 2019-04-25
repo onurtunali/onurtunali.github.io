@@ -63,6 +63,6 @@ Algorithms in this book are introduced based on the theoretical arguments based 
 **Note:** I strongly suggest the reader to open up a [kaggle](https://www.kaggle.com/) account, because all jupyter notebooks in this site are publicly published there and can be used easily without any hassle of system specific installments or requirements.
 
 
----
 
  |Next post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html)|
+

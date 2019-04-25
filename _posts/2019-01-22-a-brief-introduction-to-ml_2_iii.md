@@ -390,6 +390,5 @@ plt.show()
 ![png](/img/abitmlfe/marginal_likelihood_2.png)
 
 
----
 
-| Previous post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/015/a-brief-introduction-to-ml_2_ii.html) |
+| Previous post: [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html) |

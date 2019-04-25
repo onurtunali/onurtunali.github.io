@@ -383,6 +383,5 @@ plt.show()
 ![](/img/abitmlfe/ml_results.png)
 
 
----
 
 | Previous post: [Chapter 1]({{ site.url }}/ml/2019/01/01/a-brief-introduction-to-ml_1.html) |  Next post: [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html) |
