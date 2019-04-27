@@ -1,18 +1,11 @@
 ---
 layout: post
-title: A Brief Introduction to Machine Learning for Engineers 1
+title: A Brief Introduction to Machine Learning for Engineers
 categories: ML
 date:   2019-01-01 22:54:40 +0300
-excerpt: This is a rather dense book by *Osvaldo Simeone* which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of Pattern Recognition and Machine Learning by Christopher Bishop.
+excerpt: This is a rather dense book by Osvaldo Simeone which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of Pattern Recognition and Machine Learning by Christopher Bishop.
 
 ---
-
-
-## All posts
-
-- [Chapter 2: Part I]({{ site.url }}/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html)
-- [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html)
-- [Chapter 2: Part III]({{ site.url }}/ml/2019/01/22/a-brief-introduction-to-ml_2_iii.html)
 
 
 This is a rather dense book by *Osvaldo Simeone* which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of *Pattern Recognition and Machine Learning* by Christopher Bishop.
@@ -32,6 +25,7 @@ However, it has its moments in terms of being terse, so be prepared to comb thro
 - Vectors are in column form
 - $$\log$$ is base 2 and $$ \ln $$ is natural logarithm
 
+**Jupyter Notebooks:** [Chapter 2]({{base.url}}/jupyter_notebooks/a_brief_introduction_to_ml.ipynb)
 
 # 1. Introduction
 

@@ -3,7 +3,7 @@ layout: post
 title: A Brief Introduction to Machine Learning for Engineers 2 Part III
 categories: ML
 date:   2019-01-22 22:54:40 +0300
-excerpt: Notes on the 2 Chapter of "A Brief Introduction to Machine Learning for Engineers".
+excerpt: In this post, bayesian learning framework is covered in detail with bayesian predictive function and marginal likelihood including coding exercises.
 ---
 
 * content
@@ -29,7 +29,9 @@ As a clarification, this equation holds due to the conditional independence of $
 
 As mentioned our main purpose it to find $$ P(t \vert \mathcal{D},x) $$ and again dropping data points, we have
 
-$$ P(t \vert T_{D}) = \frac{P(t, T_{D})}{P(T_{D})} = \underset{\text{marginalization}}{\frac{\int P(t,w, T_{D})dw}{P(T_{D})}} = \frac{\int P(t, T_{D} \vert w) P(w) dw }{P(T_{D})} = \underset{\text{Bayes' rule}}{ \frac{\int P(t \vert w) P(T_{D} \vert w) P(w) dw}{P(T_{D})}} = \int P(t \vert w) P(w \vert T_{D}) dw $$
+$$ P(t \vert T_{D}) = \frac{P(t, T_{D})}{P(T_{D})} = \underset{\text{marginalization}}{\frac{\int P(t,w, T_{D})dw}{P(T_{D})}} = \frac{\int P(t, T_{D} \vert w) P(w) dw }{P(T_{D})} $$
+
+$$ P(t \vert T_{D}) = \int P(t \vert w) ~ \left( \underset{\text{Bayes' rule}}{ \frac{P(T_{D} \vert w) P(w) }{P(T_{D})}} ~ \right) dw = \int P(t \vert w) P(w \vert T_{D}) dw $$
 
 Finally reintroducing the data points, we obtain the key equation which is bayes prediction function
 
@@ -56,8 +58,8 @@ In bayesian approach, variance changes with given new data point. In addition, a
 ### Bayesian `code practice`
 
 - N is the sample size
-- $$L_{D}~(\hat{t})$$ is training loss
-- $$L_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
+- $$ \mathcal{L}_{D}~(\hat{t})$$ is training loss
+- $$ \mathcal{L}_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
 - $$\lambda$$ is regularization constant
 
 Observations:
@@ -225,7 +227,7 @@ and this approach enables model selection without validation by including prior 
 
 $$ P(t_{D}~ \vert X_{D}) \sim \mathcal{N}(0, \alpha^{-1} X_{D}~X_{D}^{T} + \beta^{-1} I ) $$
 
-Since normalization constant of a Gaussian distribution depends on variance which $$alpha^{-1} X_{D}~X_{D}^{T} + \beta^{-1} I$$, peak value of $$P(t_{D}~ \vert X_{D})$$ changes with $$\alpha$$ and $$\beta$$ parameters.
+Since normalization constant of a Gaussian distribution depends on variance which $$ \alpha^{-1} X_{D}~X_{D}^{T} + \beta^{-1} I$$, peak value of $$P(t_{D}~ \vert X_{D})$$ changes with $$\alpha$$ and $$\beta$$ parameters.
 
 Let's go through the whole process. At first, we choose $$\alpha, \beta$$ and calculate marginal log likelihood $$P(t_{D}~ \vert X_{D})$$ and choose the $$M$$ yielding peak value. However, if we graph $$P(t_{D}~ \vert X_{D}) $$ vs. $$M$$ with different $$ \alpha $$ values, it is clear that even though peak $$M$$ values are similar we cannot exactly pin down the optimum value with only checking a single $$ \alpha $$. In short, we again have a hyperparameter to tune. As we mentioned earlier, changing $$\alpha$$ affects variance $$alpha^{-1} X_{D}~X_{D}^{T} + \beta^{-1} I$$ which changes normalization and consequently peak value of $$P(t_{D}~ \vert X_{D}) $$.
 
@@ -233,7 +235,7 @@ Finally, assigning priors to $$\alpha$$ and $$M$$ also leads to hierarchical mod
 
 ### Marginal likelihood `code practice`
 
-- $$L_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
+- $$ \mathcal{L}_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
 - $$\alpha$$ is precision for w
 - $$ \beta$$ is precision for data points
 

@@ -3,7 +3,7 @@ layout: post
 title: A Brief Introduction to Machine Learning for Engineers 2 Part I
 categories: ML
 date:   2019-01-08 22:54:40 +0300
-excerpt: Notes on the 2 Chapter of "A Brief Introduction to Machine Learning for Engineers".
+excerpt: Three main learning frameworks namely frequentist, bayesian and minimum description length (MDL) are studied in this chapter. In this post, maximum likelihood (ML) learning is covered.
 ---
 
 * content
@@ -27,7 +27,7 @@ Once a loss function is determined, optimal $$\hat{t}(x)$$ is characterized by m
 
 **Generalization Loss:** This loss measures the performance of our predictor for the whole population.
 
-$$ L_{p}~(\hat{t}) = E_{(x,t)\sim P(x,t)}~[\ell_{q}~(t,\hat{t})]~~~~ (2.2)$$
+$$ \mathcal{L}_{p}~(\hat{t}) = E_{(x,t)\sim P(x,t)}~[\ell_{q}~(t,\hat{t})]~~~~ (2.2)$$
 
 The solution to this problem is given by optimal predictor:
 
@@ -52,13 +52,12 @@ $$ \frac{d E_{(t  \vert  x )\sim P(t \vert x)}~[ \ell_{2}~(t,\hat{t}(x)) \vert x
 
 $$ \hat{t}(x) = E_{(t  \vert  x )\sim P(t \vert x)}~[ t \vert x] ~ \text{ which is the optimum predictor so } \hat{t}(x) = t^{*}(x)$$
 
-Main goal is to come up with a predictor $$ \hat{t} $$ yielding a performance $$L_{p}~(\hat{t})$$ as close as possible to $$L_{p}~(t^{*}(x))$$. Nevertheless one should note that $$p(x,t)$$ is generally not known and this formulation of the problem applies to frequentist approach.
+Main goal is to come up with a predictor $$ \hat{t} $$ yielding a performance $$\mathcal{L}_{p}~(\hat{t})$$ as close as possible to $$\mathcal{L}_{p}~(t^{*}(x))$$. Nevertheless one should note that $$p(x,t)$$ is generally not known and this formulation of the problem applies to frequentist approach.
 
 ## 2.3 Frequentist framework:
 This framework assumes that parameters exist and are constant. Also data points are drawn from an unknown underlying distribution such as $$P(x,t)$$ with independent identically distributed (i.i.d. assumption):
 
 $$ ({\rm t_{n}}, {\rm x_{n}}) \underset{i.i.d.}{\sim} P(x,t), i=1...N$$
-
 
 
 Since $$P(x,t)$$ is unknown two different approaches are :
@@ -69,11 +68,11 @@ $$ \hat{t}_{D}~(x) = \underset{\hat{t}}{argmin}~E_{t \vert x \sim P_{D}~(t \vert
 
 - **Direct inference:** Empirical Risk Minimization (ERM) technique. Learn directly an approximation $$\hat{t}~(x)$$ of the optimal decision rule by minimizing an empirical estimate
 
-$$ \hat{t}_{D} = \underset{\hat{t}}{argmin} L_{D}~(\hat{t})~ (2.7)$$
+$$ \hat{t}_{D} = \underset{\hat{t}}{argmin} \mathcal{L}_{D}~(\hat{t})~ (2.7)$$
 
-Where empirical risk or empirical loss $$L_{D}~(\hat{t})$$ defined as:
+Where empirical risk or empirical loss $$ \mathcal{L}_{D}~(\hat{t})$$ defined as:
 
-$$ L_{D}~(\hat{t}) = \frac{1}{N} \sum_{n=1}^{N} \ell_{q}~(t_{n},\hat{t}(x_{n}) $$
+$$ \mathcal{L}_{D}~(\hat{t}) = \frac{1}{N} \sum_{n=1}^{N} \ell_{q}~(t_{n},\hat{t}(x_{n}) $$
 
 First approach is more flexible. If $$P_{D}~(t \vert x)$$ is a good approximation, then any loss function can be used (of course producing different performances). Second approach is tied to the specific loss function.
 
@@ -221,9 +220,9 @@ assuming N is large enough, $$w_{ML}$$ ~ tends to $$w^{*}$$. To put it different
 
 We can decompose bias and estimation error as follows and let's remember that $$t^{*}$$ (2.3) is the optimum predictor:
 
-$$ L_{p}~(w_{ML}) = L_{p}~(t^{*}) + \underset{\text{Bias}}{\left[L_{p}~(w^{*}) - L_{p}~(t^{*}) \right]} + \underset{\text{Estimation error}}{\left[L_{p}~(w_{ML}) - L_{p}~(w^{*}) \right]} ~~~~ (2.22) $$
+$$ \mathcal{L}_{p}~(w_{ML}) = \mathcal{L}_{p}~(t^{*}) + \underset{\text{Bias}}{\left[\mathcal{L}_{p}~(w^{*}) - \mathcal{L}_{p}~(t^{*}) \right]} + \underset{\text{Estimation error}}{\left[\mathcal{L}_{p}~(w_{ML}) - \mathcal{L}_{p}~(w^{*}) \right]} ~~~~ (2.22) $$
 
-- Increasing N decreases estimation error which means $$ L_{p}~(w_{ML}) \approx L_{p}~(w^{*})$$. To put is differently model reacher its potential.
+- Increasing N decreases estimation error which means $$ \mathcal{L}_{p}~(w_{ML}) \approx \mathcal{L}_{p}~(w^{*})$$. To put is differently model reaches its potential.
 
 - It is clear from (2.22) that increasing N has no effect on bias. Because this is inherent to the model type and model order.
 
@@ -234,17 +233,17 @@ Dataset given for a machine learning task is divided into three:
 - **Validation set:** Used to determine hyperparameters of algorithm, so we don't overfit.
 - **Test set:** Used to evaluate overall performance of algorithm after model and hyperparameters are finalized.
 
-Since $$L_{p}~(t^{*})$$ is not possible to calculate due to the fact that $$P(x,t)$$ is unknown, we utilize test set to calculate an approximation to $$L_{p}~(t^{*})$$ by testing values never used before.
+Since $$\mathcal{L}_{p}~(t^{*})$$ is not possible to calculate due to the fact that $$P(x,t)$$ is unknown, we utilize test set to calculate an approximation to $$\mathcal{L}_{p}~(t^{*})$$ by testing values never used before.
 
 ### Maximum likelihood `code practice`
 
 - N is the sample size
-- $$L_{D}~(\hat{t})$$ is training loss
-- $$L_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
+- $$\mathcal{L}_{D}~(\hat{t})$$ is training loss
+- $$\mathcal{L}_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
 
 Observations:
 
-- Notice the difference between $$L_{D}~(\hat{t})$$ and $$L_{p}~(\hat{t})$$ for M = 9 and `N=15`. This is a clear sign of overfitting.
+- Notice the difference between $$\mathcal{L}_{D}~(\hat{t})$$ and $$\mathcal{L}_{p}~(\hat{t})$$ for M = 9 and `N=15`. This is a clear sign of overfitting.
 
 - By increasing `N=1000`, it is easy to see that optimum model order $$M$$ = 5.
 

@@ -3,9 +3,8 @@ layout: post
 title: A Brief Introduction to Machine Learning for Engineers 2 Part II
 categories: ML
 date:   2019-01-15 22:54:40 +0300
-excerpt: Notes on the 2 Chapter of "A Brief Introduction to Machine Learning for Engineers".
+excerpt: In this post, maximum a posteriori (MAP) learning is covered in detail with comparison to ML including coding exercises.
 ---
-
 
 * content
 {:toc}
@@ -40,7 +39,7 @@ and let's unpack derivations in the second term, since w is in fact a multivaria
 
 Finally, disregarding constant terms and dividing the expression by $$\beta N / 2$$ we get
 
-$$ - \ln P(t_{D}, w  \vert  X_{D}, \beta)  = \underset{w}{min}  \mathcal{L_{D}}~(w) + \frac{\lambda}{N}  \vert  \vert w \vert  \vert ^{2}, ~~~~ (2.27) $$
+$$ - \ln P(t_{D}, w  \vert  X_{D}, \beta)  = \underset{w}{min} ~ \mathcal{L_{D}}~(w) + \frac{\lambda}{N}  \vert  \vert w \vert  \vert ^{2}, ~~~~ (2.27) $$
 
 where $$\lambda = \alpha / \beta $$ is called regularization constant. An important observation is that when N grows significantly, problem transforms int maximum likelihood. Using the same steps in maximum likelihood, we can also solve this minimization problem analytically.
 
@@ -74,8 +73,8 @@ Regularization is used to prevent overfitting and find the optimum model capacit
 ### Maximum a priori `code practice`
 
 - N is the sample size
-- $$L_{D}~(\hat{t})$$ is training loss
-- $$L_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
+- $$\mathcal{L}_{D}~(\hat{t})$$ is training loss
+- $$\mathcal{L}_{P}~(\hat{t})$$ is generalization loss which is approximated by validation using Root Mean Squared Metric
 - $$\lambda$$ is regularization constant
 
 Observations:
