@@ -5,7 +5,6 @@ categories: ML
 date:   2019-01-08 22:54:40 +0300
 excerpt: Three main learning frameworks namely frequentist, bayesian and minimum description length (MDL) are studied in this chapter. In this post, maximum likelihood (ML) learning is covered.
 ---
-
 * content
 {:toc}
 
