@@ -20,35 +20,35 @@ Since size of training data is $$N$$, total number of data instance assignments 
 **Disclaimer:** Combinatorics proof is rather strained and verbose. Nevertheless, the merit of combinatorics proof underlies its explanation of how an overly complicated hypothesis class is able to memorize (shatter in VC terminology) all instances of given data set.
 
 
-## 1. Formal definition
+## Formal definition
 
-Given a class of real-valued functions $$ h \in \mathcal{H}$$ (hypothesis class)  defined on $$\mathcal{X}$$, a data sample of size $$n$$, $$\mathcal{D} = \{x_{1},..,x_{n}\}$$ distributed according to $$P$$ over $$\mathcal{X}$$ and finally binary values of $$ \sigma = \{\sigma_{1},...,\sigma_{n}\}$$ drawn independently from rademacher distribution which is $$ \sigma_{i} \sim \mathcal{Bern(1/2)}, P(\sigma_{i} = 1) = P(\sigma_{i} = -1) = 1/2 $$. After giving the basic concepts, we can define the following expression as the correlation:
+Given a class of real-valued functions $$ h \in \mathcal{H}$$ (hypothesis class)  defined on $$\mathcal{X}$$, a data sample of size $$n$$, $$\mathcal{D} = \{x_{1},..,x_{n}\}$$ distributed with respect to $$P$$ over $$\mathcal{X}$$ and finally binary values of $$ \sigma = \{\sigma_{1},...,\sigma_{n}\}$$ drawn independently from rademacher distribution which is $$ \sigma_{i} \sim \mathcal{Bern(1/2)}, P(\sigma_{i} = 1) = P(\sigma_{i} = -1) = 1/2 $$. After giving the basic concepts, we can define the following expression as the correlation:
 
-$$ \sup_{h \in H} \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~ h_{i} \right), ~~~~ (1.1) $$
+$$ \sup_{h \in H} \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~ h_{i} \right). \tag{1} $$
 
-In this expression $$h_{i} = h(x_{i})$$ and expected value of correlation (1.1) with respect to $$\sigma$$
+In this expression $$h_{i} = h(x_{i})$$ and expected value of correlation (1) with respect to $$\sigma$$
 
-$$ \widehat{Rad_{n}}~(\mathcal{H}) = E_{\sigma}~\left[\sup_{h \in H} \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~h_{i} \right) \right] ~~~~ (1.2) $$
+$$ \widehat{Rad_{n}}~(\mathcal{H}) = E_{\sigma}~\left[\sup_{h \in H} \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~h_{i} \right) \right]. \tag{2} $$
 
 is defined as *empirical rademacher complexity*. It will be shown that
 
-$$ 0 \leq \widehat{Rad_{n}}~(\mathcal{H}) \leq 1 ~~~~ (1.3) $$
+$$ 0 \leq \widehat{Rad_{n}}~(\mathcal{H}) \leq 1 \tag{3} $$
 
 Finally, the rademacher complexity of the class $$\mathcal{H}$$ is defined as the expectation
 of $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ over samples $$\mathcal{D}$$ of size n drawn according to distribution of $$P$$
 
-$$ Rad_{n}~(\mathcal{H}) = E_{P} ~ [ \widehat{Rad_{n}}~(\mathcal{H})] ~~~~ (1.4) $$
+$$ Rad_{n}~(\mathcal{H}) = E_{P} ~ [ \widehat{Rad_{n}}~(\mathcal{H})] \tag{4} $$
 
 
 Two important points are in $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ given data sample is constant, but $$\sigma$$ values are changing. In $$ Rad_{n}~(\mathcal{H})$$, both $$\sigma$$ and data sample is changing. Following proofs are constructed regarding a binary classifier.
 
-## 2. Combinatorics proof
+## Combinatorics proof
 
 **Claim:**  $$ 0 \leq \widehat{Rad_{n}}~(\mathcal{H}) \leq 1 $$
 
-**Lower bound:** Firstly, we start with lower bound  and show that it is 0. Let's decide on an $$ \mathcal{H} $$ having a single $$h$$ in other words $$ \vert \mathcal{H} \vert = 1 $$ . Therefore, correlation (1.1) doesn't need supremum since there is only one $$h(\mathcal{D}) = \{h_{1}, ... , h_{N}\}$$. So (1.2) becomes
+**Lower bound:** Firstly, we start with lower bound  and show that it is 0. Let's decide on an $$ \mathcal{H} $$ having a single $$h$$ in other words $$ \vert \mathcal{H} \vert = 1 $$ . Therefore, correlation (1) doesn't need supremum since there is only one $$h(\mathcal{D}) = \{h_{1}, ... , h_{N}\}$$. So equation (2) becomes
 
-$$ \widehat{Rad_{n}}~(\mathcal{H}) = E_{\sigma}~\left[ \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~h_{i} \right) \right] ~~~~ (2.1) $$
+$$ \widehat{Rad_{n}}~(\mathcal{H}) = E_{\sigma}~\left[ \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}~h_{i} \right) \right] \tag{5} $$
 
 In total there are $$2^{N}$$ different $$\sigma$$'s and the probability of any $$\sigma^{(j)}$$ is $$P(\sigma^{(j)}) = 1 / 2^{N}$$ due to the fact that $$ \sigma = \{\sigma_{1},...,\sigma_{n}\} $$ and $$\sigma_{i} \sim \mathcal{Bern(1/2)}$$. If we expand the expected value expression
 
@@ -56,9 +56,9 @@ $$ \widehat{Rad_{n}}~(\mathcal{H}) = \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{
 
 $$ \widehat{Rad_{n}}~(\mathcal{H}) = \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}^{(1)}~h_{i} \right) \frac{1}{2^{N}} + ... + \left( \frac{1}{N} \sum_{i=1}^{n}~ \sigma_{i}^{(2^{N})}~h_{i} \right) \frac{1}{2^{N}} $$
 
-$$ \widehat{Rad_{n}}~(\mathcal{H}) = \frac{1}{2^{N}}~ \frac{1}{N} \left[ \left(  \sum_{i=1}^{n}~ \sigma_{i}^{(1)}~h_{i} \right)  + ... + \left(  \sum_{i=1}^{n}~ \sigma_{i}^{(2^{N})}~h_{i} \right) \right]~~~~ (2.2) $$
+$$ \widehat{Rad_{n}}~(\mathcal{H}) = \frac{1}{2^{N}}~ \frac{1}{N} \left[ \left(  \sum_{i=1}^{n}~ \sigma_{i}^{(1)}~h_{i} \right)  + ... + \left(  \sum_{i=1}^{n}~ \sigma_{i}^{(2^{N})}~h_{i} \right) \right] \tag{6} $$
 
-Now, we need to determine a way to calculate $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ expressions. As the result of $$\vert \mathcal{H} \vert = 1$$, correlation $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ changes according to the number of mismatches between $$h_{i}$$ and $$\sigma_{i}^{(j)}$$. At most it is $$N$$ and at least it is $$-N$$. So we can generalize the value of $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ in terms of mismatches between given $$\sigma^{(j)}$$ and $$h$$. If there are $$k$$ mismatches, total sum would be $$(N-k) \times +1 + k \times -1 = N - 2k$$ and there would be $$\binom{N}{k}$$ different cases of $$k$$ mismatches. Remembering the fact that $$\sigma$$'s contain all possible binary distributions, we can rewrite (2.2) as the sum of $$0$$ mismatches through $$N$$ mismatches.
+Now, we need to determine a way to calculate $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ expressions. As the result of $$\vert \mathcal{H} \vert = 1$$, correlation $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ changes according to the number of mismatches between $$h_{i}$$ and $$\sigma_{i}^{(j)}$$. At most it is $$N$$ and at least it is $$-N$$. So we can generalize the value of $$\sum_{i=1}^{n}~ \sigma_{i}^{(j)}~h_{i}$$ in terms of mismatches between given $$\sigma^{(j)}$$ and $$h$$. If there are $$k$$ mismatches, total sum would be $$(N-k) \times +1 + k \times -1 = N - 2k$$ and there would be $$\binom{N}{k}$$ different cases of $$k$$ mismatches. Remembering the fact that $$\sigma$$'s contain all possible binary distributions, we can rewrite (6) as the sum of $$0$$ mismatches through $$N$$ mismatches.
 
 $$ = \frac{1}{2^{N}}~ \frac{1}{N} \left[ \binom{N}{0} (N - 2.0) ~ + \binom{N}{1} (N - 2.1) ~ + ... + \binom{N}{N-1)} (N - 2(N-1)) ~ + \binom{N}{N} (N - 2.N) \right] $$
 
@@ -70,7 +70,7 @@ $$ \widehat{Rad_{n}}~(\mathcal{H}) = \frac{1}{2^{N}}~ \frac{1}{N} \left[ \binom{
 
 This result holds for both when $$N$$ is odd and even.
 
-**Upper bound:** Secondly, we start with upper bound  and show that it is 1. This part of the proof is straightforward. Let's decide on an $$ \vert \mathcal{H} \vert = 2^{N}$$ meaning for a given $$\mathcal{D} = \{x_{1},..,x_{n}\}$$ every possible class assignment can be correctly classified by one of the $$h$$ in $$\mathcal{H}$$. Therefore, correlation (1.1) is 1 because there is always an $$h$$ with no mismatches making $$ 1/N ~\sum_{i=1}^{n}~ \sigma_{i}~h_{i} = (1/N) N $$, so supremum is 1. Finally, (2.1) becomes
+**Upper bound:** Secondly, we start with upper bound  and show that it is 1. This part of the proof is straightforward. Let's decide on an $$ \vert \mathcal{H} \vert = 2^{N}$$ meaning for a given $$\mathcal{D} = \{x_{1},..,x_{n}\}$$ every possible class assignment can be correctly classified by one of the $$h$$ in $$\mathcal{H}$$. Therefore, correlation (1.1) is 1 because there is always an $$h$$ with no mismatches making $$ 1/N ~\sum_{i=1}^{n}~ \sigma_{i}~h_{i} = (1/N) N $$, so supremum is 1. Finally, (5) becomes
 
 $$ \widehat{Rad_{n}}~(\mathcal{H}) = \frac{1}{2^{N}} \left[ \underbrace{1 + ... + 1}_{2^{N}} \right]$$
 
@@ -78,7 +78,7 @@ $$ \widehat{Rad_{n}}~(\mathcal{H}) = 1 $$
 
 $$ 0 \leq \widehat{Rad_{n}}~(\mathcal{H}) \leq 1 ~~~~ \Box  $$
 
-## 3.  $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ `code practice`
+## $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ `code practice`
 
 Following code calculates $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ of a given hypothesis class with certain capacity. It doesn't require any external library, so it is possible to run the code with standard python.
 
@@ -185,24 +185,24 @@ if __name__ == "__main__":
      	 Rad(H) = [0.0, 0.17, 0.33, 0.5, 0.67, 0.83, 1.0]
 
 
-## 4. Implications to deep learning
+## Implications to deep learning
 
 In conventional machine learning approaches, results of computational learning theory states that we can bound generalization loss $$\mathcal{L}_{p}~(h)$$ with using empirical loss $$\mathcal{L}_{D}~(h)$$ (for further detail check [a brief introduction to ML series](https://onurtunali.github.io/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html)), empirical rademacher complexity of hypothesis class and some confidence related constant. Using the inequality (13)  in [[3]](#references) and without being too strict, we can write
 
-$$ \mathcal{L}_{p}~(h) \leq \mathcal{L}_{D}~(h) + \widehat{Rad_{n}}~(\mathcal{H}) + C(\delta,n) $$
+$$ \mathcal{L}_{p}~(h) \leq \mathcal{L}_{D}~(h) + \widehat{Rad_{n}}~(\mathcal{H}) + C(\delta,n) \tag{7} $$
 
 which indicates that discrepancy between generalization loss and training loss is constrained by empirical rademacher complexity.
 
-$$ \mathcal{L}_{p}~(h) - \mathcal{L}_{D}~(h) \leq \widehat{Rad_{n}}~(\mathcal{H}) + C(\delta,n) $$
+$$ \mathcal{L}_{p}~(h) - \mathcal{L}_{D}~(h) \leq \widehat{Rad_{n}}~(\mathcal{H}) + C(\delta,n) \tag{8} $$
 
-That is to say if a hypothesis class with high complexity is used, $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ approaches to 1 and difference between training and generalization loss diverge so that overfitting occurs. For this reason it is expected that if a hypothesis class is too complex and able to memorize all the training data ($$ \mathcal{L}_{D}~(h) \to 0 $$), then it generalizes poorly in case the amount of training data is insufficient. However, it is known that deep neural networks generalize well despite the fact that they are shown to be able to even memorize random data in [[2]](#references). This indicates that our customary understanding of generalization doesn't exactly holds for deep neural networks and a new point of view is due.
+That is to say if a hypothesis class with high complexity is used, $$ \widehat{Rad_{n}}~(\mathcal{H}) $$ approaches to 1 and difference between training and generalization loss diverge according to (8) so that overfitting occurs. For this reason it is expected that if a hypothesis class is too complex and able to memorize all the training data ($$ \mathcal{L}_{D}~(h) \to 0 $$), then it generalizes poorly in case the amount of training data is insufficient. However, it is known that deep neural networks generalize well despite the fact that they are shown to be able to even memorize random data in [[2]](#references). This indicates that our customary understanding of generalization doesn't exactly holds for deep neural networks and a new point of view is due.
 
 ## References
 
-[1] Peter L. Bartlett and Shahar Mendelson, "*Rademacher and Gaussian complexities: Risk bounds and structural results*", Journal of Machine Learning Research, 2002.
+[[1]](#references) Peter L. Bartlett and Shahar Mendelson, "*Rademacher and Gaussian complexities: Risk bounds and structural results*", Journal of Machine Learning Research, 2002.
 
-[2] Chiyuan Zhang, Samy Bengio, Moritz Hardt, Benjamin Recht, Oriol Vinyals, "*Understanding Deep Learning Requires Rethinking Generalization*", ICLR, [arXiv:1611.03530](https://arxiv.org/abs/1611.03530), 2017.
+[[2]](#references) Chiyuan Zhang, Samy Bengio, Moritz Hardt, Benjamin Recht, Oriol Vinyals, "*Understanding Deep Learning Requires Rethinking Generalization*", ICLR, [arXiv:1611.03530](https://arxiv.org/abs/1611.03530), 2017.
 
-[3] Pirmin Lemberger, "*On Generalization and Regularization in Deep Learning*", [arXiv:1704.01312](https://arxiv.org/abs/1704.01312), 2017.
+[[3]](#references) Pirmin Lemberger, "*On Generalization and Regularization in Deep Learning*", [arXiv:1704.01312](https://arxiv.org/abs/1704.01312), 2017.
 
 
