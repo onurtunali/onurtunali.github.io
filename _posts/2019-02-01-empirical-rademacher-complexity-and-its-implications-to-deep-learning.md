@@ -3,7 +3,7 @@ layout: post
 title: Empirical Rademacher Complexity and Its Implications to Deep Learning
 categories: ML
 date:   2019-02-01 22:54:40 +0300
-excerpt: In machine learning, Rademacher complexity is used to measure the capacity of a hypothesis class from which utilized algorithm chooses its predictors and probably first proposed in [1].
+excerpt: In machine learning, Rademacher complexity is used to measure the capacity of a hypothesis class from which utilized algorithm chooses its predictors and probably first proposed in [1]. In computational learning theory, it is possible to bound generalization loss by way of using data dependent rademacher complexity under certain assumptions.
 ---
 
 * content
