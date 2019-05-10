@@ -39,6 +39,11 @@ ul, ol, dl, figure,
 }
 
 
+hr {
+  margin-top: 5px;
+   border-top: 0.5px solid $grey-color-light;
+   margin-bottom: 5px;
+}
 
 /**
  * Images

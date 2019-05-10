@@ -9,36 +9,66 @@ excerpt: NICE is a deep learning framework changing high dimensional complex dat
 * content
 {:toc}
 
+<a href="https://colab.research.google.com/drive/1zNYS2LMLGz82cwd0UKZd3pzrsp1Z_t8v#forceEdit=true&offline=true&sandboxMode=true" style="color:#FFA500" target="blank">**Google Colab Notebook**</a> (**playground mode, to save the changes please copy the notebook.**)
 
-NICE is a deep learning framework changing high dimensional complex data into non linear independent components. This post summarizes the paper and explains some left out mathematical concepts especially why resulting jacobian of transformation function is unit constant and how to derive it. In addition, pytorch implementation of experimental results are given.
+NICE is a deep learning framework changing high dimensional complex data into non linear independent components. This post summarizes the paper and explains some left out mathematical concepts especially why resulting jacobian of transformation function is unit constant, how to derive it and scaling of output layer. In addition, pytorch implementation of experimental results are given.
 
-- Paper is [here](https://arxiv.org/abs/1410.8516)
-- Original code is [here](https://github.com/fmu2/NICE/)
-- Jupyter notebook is [here]({{base.url}}/jupyter_notebooks/nice_implementation.ipynb)
-- Kaggle kernel for implementation of whole experimental result is [here](https://kaggleurl)
+- Paper is [arXiv:1410.8516](https://arxiv.org/abs/1410.8516)
+- Original code is [fmu2/NICE/](https://github.com/fmu2/NICE/)
 
+# Overview
 
-## Overview
-
-Given data $$x \in \mathcal{X}^{D}$$is transformed using vector valued function of $$h=f(x)$$ which is $$f: \mathcal{X}^{D} \to \mathcal{H}^{D} $$ and trivially invertible. Distribution of $$h$$ is assumed to be composed of independent components that can be factorized as follows:
+Given data $$x \in \mathcal{X}^{D}$$ is transformed using vector valued function of $$h=f(x)$$ which is $$f: \mathcal{X}^{D} \to \mathcal{H}^{D} $$ and trivially invertible. Distribution of $$h$$ is assumed to be composed of independent components that can be factorized as follows:
 
 $$ P_{H}~(h) = \prod_{d \in \mathcal{D}}~P_{H_{d}}~(h_{d}) $$
 
-Using change of variables, we obtain following equation
+Using change of variables, we obtain the following equation.
 
-$$ P_{X}~(x) = P_{H}~(f(x)) ~ \left \vert \det \frac{\partial f(x)}{\partial x} \right \vert \tag{1} $$
+$$ P_{X}~(x) = \underbrace{P_{H}~(f(x))}_\text{prior distribution} ~ \left \vert \det \frac{\partial f(x)}{\partial x} \right \vert \tag{1} $$
 
 To decide an $$f$$ following two conditions should be met to benefit from NICE framework:
-1. Determinant of $$J(f(x))$$ is trivially obtained
-2. $$f^{-1}$$ is also trivially obtained
+
+1. Determinant of jacobian of f(x) such that $$J(f(x)) = \partial f(x) / \partial x $$ is trivially obtained
+2. $$f^{-1}(h) = g(h)$$ is also trivially obtained
 
 As a result, learning criterion of NICE framework is maximizing the following log likelihood:
 
 $$ \log( P_{X}~(x)) = \sum_{d=1}^{\mathcal{D}} \log(P_{H_{d}}~(f_{d}(x))) + \log\left(\left \vert \det \frac{\partial f(x)}{\partial x} \right \vert \right) \tag{2} $$
 
-## Mathematical background
+In the paper transformations are chosen to be additive coupling layers such that:
 
-### Jacobians
+$$ x = (x_{1}, x_{2}),~ h = (h_{1}, h{2})$$
+$$ h_{1} = x_{1}$$
+$$ h_{2} = x_{1} + m(x_{2}), \text{m is a neural network} $$
+
+In subsequent sections, it will be shown that transformations using additive coupling result in unit constant determinant and hence make the equation (2) also constant if prior distribution is not learned. Therefore, to address the issue top layer is consequently scaled through using multiplicative coupling:
+
+$$ h = \exp(s) \odot h $$
+
+$$S$$ is a diagonal matrix that scales the final outputs. At the end, learning criterion for settings having predetermined prior distribution and utilizing additive coupling with scaling becomes
+
+$$ \log( P_{X}~(x)) = \sum_{d=1}^{\mathcal{D}} \log(P_{H_{d}}~(f_{d}(x))) + \sum_{d=1}^{\mathcal{D}} |S_{ii}|  \tag{3} $$
+
+
+## Main points
+
+- Every additive layer has unit determinant so top layer is a scaling diagonal $$S_{ii}$$ matrix
+- Paper uses isomorphic gaussian and logistic distribution so prior is not learned. In this case only thing left to learn is $$S_{ii}$$ which indicates the important components
+
+## Experimental results
+
+|Dataset| MNIST| TFD |SVHN |CIFAR-10|
+|---|---|---|---|---|
+|Dimensions| 784| 2304|3072 |3072|
+|Preprocessing |None |Approx. whitening| ZCA| ZCA|
+|Hidden layers| 5| 4 |4 |4|
+|Hidden units| 1000 |5000| 2000 |2000|
+|Prior| logistic| gaussian |logistic |logistic|
+|Log-likelihood| 1980| 5514 |11496 |5371|
+
+# Mathematical background
+
+## Jacobians
 
 The result of function compositions can be shown as $$ h = f(x) = f_{L} ~ \circ \cdots f_{2} \circ f_{1}(x) $$ and let's show that jacobian of function compositions is equal to the matrix multiplication of individual function jacobians which is $$ J(h) = \frac{\partial h}{\partial x} = \frac{\partial f_{L}}{\partial f_{L-1}} \cdots \frac{\partial f_{2}}{\partial f_{1}} \frac{\partial f_{1}(x)}{\partial x} $$.  we can demonstrate how the procedure works with an example and generalization can be derived building upon it. Functions and their depended variables are as follows:
 
@@ -49,12 +79,12 @@ $$ h = (h_{3}, h_{4}) $$
 
 So jacobian of $$h$$ is
 
-$$ J(h) = \frac{ \partial (h)}{\partial (x_{1}, x_{2})} = \frac{ \partial (h_{3},h_{4})}{\partial (x_{1}, x_{2})} = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial x_{1} } & \frac{ \partial h_{3}}{\partial x_{2} }\\ \frac{ \partial h_{4}}{\partial x_{1} } & \frac{ \partial h_{4}}{\partial x_{2} } \end{bmatrix} \tag{3} $$
-<img src="/img/der_depend.jpg" width="800">
+$$ J(h) = \frac{ \partial (h)}{\partial (x_{1}, x_{2})} = \frac{ \partial (h_{3},h_{4})}{\partial (x_{1}, x_{2})} = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial x_{1} } & \frac{ \partial h_{3}}{\partial x_{2} }\\ \frac{ \partial h_{4}}{\partial x_{1} } & \frac{ \partial h_{4}}{\partial x_{2} } \end{bmatrix} \tag{4} $$
+<img src="https://onurtunali.github.io/img/der_depend.jpg" width="700">
 
 **Figure 1**: *Graphical description of how chain rule works in multivariable functions*
 
-Figure 1 shows how to obtain partial derivative of a multivariable function with dependency graph of each function. If we plug results into (3), we end up with the following equation:
+Figure 1 shows how to obtain partial derivative of a multivariable function with dependency graph of each function. If we plug results into (4), we end up with the following equation:
 
 
 
@@ -64,11 +94,11 @@ We can decompose this expression using matrix multiplication such that
 
 $$ J(h) = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial h_{1} } & \frac{ \partial h_{3}}{\partial h_{2} }\\ \frac{ \partial h_{4}}{\partial h_{1} } & \frac{ \partial h_{4}}{\partial h_{2} } \end{bmatrix} ~ \begin{bmatrix}  \frac{ \partial h_{1}}{\partial x_{1} } & \frac{ \partial h_{1}}{\partial x_{2} }\\ \frac{ \partial h_{2}}{\partial x_{1} } & \frac{ \partial h_{2}}{\partial x_{2} } \end{bmatrix} $$
 
-$$ J(h) = \frac{ \partial (h_{3},h_{4}) }{\partial (h_{1}, h_{2})} \frac{ \partial (h_{1},h_{2}) }{\partial (x_{1}, x_{2})} \tag{4} $$
+$$ J(h) = \frac{ \partial (h_{3},h_{4}) }{\partial (h_{1}, h_{2})} \frac{ \partial (h_{1},h_{2}) }{\partial (x_{1}, x_{2})} \tag{5} $$
 
 and finally since we are using the determinant of jacobian in (1), we can use $$ \det(AB) = \det(A) \det(B)$$   identity to find the result.
 
-### Coupling
+## Coupling
 
 Furthermore, we show why additive coupling generates unit constant determinant of jacobian by defining couping layers of transformation function as follows:
 
@@ -81,9 +111,9 @@ $$ h = ( h_{3}, h_{4}) $$
 
 $$ J(h) = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial h_{1} } & \frac{ \partial h_{3}}{\partial h_{2} }\\ \frac{ \partial h_{4}}{\partial h_{1} } & \frac{ \partial h_{4}}{\partial h_{2} } \end{bmatrix} ~ \begin{bmatrix}  \frac{ \partial h_{1}}{\partial x_{1} } & \frac{ \partial h_{1}}{\partial x_{2} }\\ \frac{ \partial h_{2}}{\partial x_{1} } & \frac{ \partial h_{2}}{\partial x_{2} } \end{bmatrix} = \begin{bmatrix} I_{d} & \frac{\partial m_{2}~(x_{2})}{ \partial h_{2}} \\ 0 & I_{d} \end{bmatrix} \begin{bmatrix} I_{d} & 0 \\ \frac{\partial m_{1}~(x_{1})}{\partial x_{1}}  & I_{d} \end{bmatrix}$$
 
-Another fact is that determinant of triangular matrices is the multiplication of their diagonal elements and in this case the result is 1 due to identity matrices.
+Another fact is that determinant of a triangular matrix is the multiplication of its diagonal elements and in this case the result is 1 due to identity matrices.
 
-## Whole library
+# Whole library
 
 Coding of library is pretty self explanatory and is added for exploratory purposes. Otherwise, library can be downloaded and imported as usual.
 
@@ -177,6 +207,7 @@ class Scaling(nn.Module):
             x = x * torch.exp(-self.scale)
         else:
             x = x * torch.exp(self.scale)
+
         return x, log_det_J
 
 """NICE main model.
@@ -368,11 +399,11 @@ class StandardLogistic(torch.distributions.Distribution):
 
 ```
 
-## Train example
+# Train example
 
 - 4 different data sets are included: `"mnist"`,`"fashion-mnist"`,`"svhn"` and `"cifar10"`.
 - If `save_model_and_load = True`, then next training session starts with previous information of neural network.
-- If gpu support is not present, it really takes a long time to train, so kaggle kernel might be more preferable.
+- If gpu support is not present, it really takes a long time to train, so colab might be more preferable.
 
 
 ```python
@@ -383,7 +414,7 @@ import matplotlib.pyplot as plt
 import os
 
 dataset_choice = "mnist" # Other possible parameters: "fashion-mnist", "svhn", "cifar10".
-max_iter = 100 # Around 4000 pictures start to have discernible shapes.
+max_iter = 1 # Around 4000 pictures start to have discernible shapes.
 save_model_and_load = True # If "True" trained model is saved and loades in every run.
 
 
@@ -474,8 +505,8 @@ def main(args):
         flow.parameters(), lr=lr, betas=(momentum, decay), eps=1e-4)
 
     if save_model_and_load:
-        if os.path.exists('./models'):
-            PATH = './models/' + filename + 'last.tar'
+        PATH = './models/' + filename + 'last.tar'
+        if os.path.exists('./models') and os.path.isfile(PATH):
             checkpoint = torch.load(PATH)
             flow.load_state_dict(checkpoint['model_state_dict'])
             optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -579,12 +610,9 @@ if __name__ == '__main__':
 
 ```
 
-    iter 100: loss = 84.622 bits/dim = 8.156
-
-    Finished training!
-    Checkpoint Saved
 
 
 
-![png](/img/nice_result.png)
+
+
 

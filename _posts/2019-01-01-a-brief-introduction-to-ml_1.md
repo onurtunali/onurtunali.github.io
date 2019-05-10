@@ -25,7 +25,7 @@ However, it has its moments in terms of being terse, so be prepared to comb thro
 - Vectors are in column form
 - $$\log$$ is base 2 and $$ \ln $$ is natural logarithm
 
-**Jupyter Notebooks:** [Chapter 2]({{base.url}}/jupyter_notebooks/a_brief_introduction_to_ml.ipynb)
+ <a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" style="color:#FFA500" target="blank">**Google Colab Notebook**</a> (**playground mode, to save the changes please copy the notebook.**)
 
 # 1. Introduction
 
