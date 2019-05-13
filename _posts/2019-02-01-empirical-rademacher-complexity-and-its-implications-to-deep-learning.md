@@ -9,8 +9,7 @@ excerpt: In machine learning, Rademacher complexity is used to measure the capac
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1PZ9Mof3DsZK19dHPPBZiA074NjgcKaXl#forceEdit=true&offline=true&sandboxMode=true" style="color:#FFA500" target="blank">**Google Colab Notebook**</a> (**playground mode, to save the changes please copy the notebook.**)
-
+<a href="https://colab.research.google.com/drive/1PZ9Mof3DsZK19dHPPBZiA074NjgcKaXl#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
 
 
 In machine learning, Rademacher complexity is used to measure the capacity of a hypothesis class from which utilized algorithm chooses its predictors and probably first proposed in [[1]](#references). In computational learning theory, it is possible to bound generalization loss by way of using data dependent rademacher complexity under certain assumptions. This is helpful in terms of studying  and deciding the *learnability* of a problem. However, when it comes to deep learning recent findings somewhat challenge the status quo of previous claim [[2]](#references) which will be covered in later sections. Before diving into formal treatment, an informal example and explanation is given.

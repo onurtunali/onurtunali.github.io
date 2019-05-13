@@ -9,7 +9,8 @@ excerpt: NICE is a deep learning framework changing high dimensional complex dat
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1zNYS2LMLGz82cwd0UKZd3pzrsp1Z_t8v#forceEdit=true&offline=true&sandboxMode=true" style="color:#FFA500" target="blank">**Google Colab Notebook**</a> (**playground mode, to save the changes please copy the notebook.**)
+<a href="https://colab.research.google.com/drive/1zNYS2LMLGz82cwd0UKZd3pzrsp1Z_t8v#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+
 
 NICE is a deep learning framework changing high dimensional complex data into non linear independent components. This post summarizes the paper and explains some left out mathematical concepts especially why resulting jacobian of transformation function is unit constant, how to derive it and scaling of output layer. In addition, pytorch implementation of experimental results are given.
 

@@ -9,7 +9,7 @@ excerpt: In this post, maximum a posteriori (MAP) learning is covered in detail 
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" style="color:#FFA500" target="blank">**Google Colab Notebook**</a> (**playground mode, to save the changes please copy the notebook.**)
+<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
 
 # 2. A "Gentle" Introduction Through Linear Regression
 
