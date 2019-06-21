@@ -22,3 +22,5 @@ kramdown:
 mathjax: true
 encoding: utf-8
 plugins: [jekyll-paginate]
+# Google Analytics
+google_analytics: UA-142471706-1
