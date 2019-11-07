@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-![Onur Tunali](/img/profile_square.jpeg){:style="width: 200px; overflow: hidden; border-radius: 60%; float: right; padding-left: 10px"}
+![Onur Tunali](/img/profile2.jpg){:style="width: 200px; overflow: hidden; border-radius: 60%; float: right; padding-left: 10px"}
 
 Onur Tunali has worked as a research scientist in [**Emerging Circuits and Computation Group (ECC)**](https://www.ecc.itu.edu.tr) for more than 4 years which is a leading laboratory in the field of computational nanoelectronics residing in Istanbul Technical University. He has received
 
