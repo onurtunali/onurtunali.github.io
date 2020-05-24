@@ -142,7 +142,7 @@
 .footer-col-3 {
     width: -webkit-calc(45% - (#{$spacing-unit} / 2));
     width:         calc(45% - (#{$spacing-unit} / 2));
-    text-align:justify;
+    text-align:right;
 }
 
 @include media-query($on-laptop) {
@@ -220,6 +220,11 @@
         font-size: 34px;
        
     }
+
+    @include media-query($on-palm) {
+        font-size: 28px;
+       
+    }
 }
 
 .post-content {
@@ -231,6 +236,11 @@
         @include media-query($on-laptop) {
             font-size: 28px;
         }
+
+       @include media-query($on-palm) {
+            font-size: 26px;
+       
+        }
     }
 
     h2 {
@@ -238,6 +248,10 @@
 
         @include media-query($on-laptop) {
             font-size: 24px;
+        }
+        @include media-query($on-palm) {
+            font-size: 22px;
+       
         }
     }
 
