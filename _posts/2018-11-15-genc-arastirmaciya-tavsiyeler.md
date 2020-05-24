@@ -10,7 +10,7 @@ excerpt: Kitap neurobilimin kurucularından <em>Santiago Ramon y Cajal'ın</em> 
 * content
 {:toc}
 
-Kitap neurobilimin kurucularından *Santiago Ramon y Cajal'ın* genç araştırmacılara verdiği öğütlerden oluşuyor.  Bu girdide genel bir özete ek olarak, ünite ünite ilgimi çeken ve önemli olduğunu düşündüğüm konulara istinaden notlarımı yazıyorum.
+Kitap neurobilimin kurucularından <a href="https://en.wikipedia.org/wiki/Santiago_Ram%C3%B3n_y_Cajal" class="wikiPreview" data-wiki-lang='en' data-wiki-title="Santiago_Ramon_y_Cajal">Santiago Ramon y Cajal</a>'ın genç araştırmacılara verdiği öğütlerden oluşuyor.  Bu girdide genel bir özete ek olarak, ünite ünite ilgimi çeken ve önemli olduğunu düşündüğüm konulara istinaden notlarımı yazıyorum.
 
 Cajal 19. yüzyılda yazdığı için önem verdiği değerler bugünün deyimi ile demode kalıyor. Klasik bir kasaba doktorunun oğlu olarak öne çıkardığ çok çalışmanın, hırsın, tevazunun ve vatan sevgisinin modern zihinlerde karşılığı sınırlı.
 
