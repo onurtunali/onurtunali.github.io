@@ -1,9 +1,3 @@
----
-layout: page
-title: 
-permalink: /config/
----
-
 # Configuration Document
 
 
