@@ -81,7 +81,7 @@ $$ h = (h_{3}, h_{4}) $$
 So jacobian of $$h$$ is
 
 $$ J(h) = \frac{ \partial (h)}{\partial (x_{1}, x_{2})} = \frac{ \partial (h_{3},h_{4})}{\partial (x_{1}, x_{2})} = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial x_{1} } & \frac{ \partial h_{3}}{\partial x_{2} }\\ \frac{ \partial h_{4}}{\partial x_{1} } & \frac{ \partial h_{4}}{\partial x_{2} } \end{bmatrix} \tag{4} $$
-<img src="https://onurtunali.github.io/img/der_depend.jpg" width="700">
+<img src="/img/nice/der_depend.jpg" width="700">
 
 **Figure 1**: *Graphical description of how chain rule works in multivariable functions*
 
@@ -611,6 +611,9 @@ if __name__ == '__main__':
 
 ```
 
+<img src="/img/nice/nice_result.png" width="350">
+
+**Figure 2**: *Result of preliminary generated numbers*
 
 
 

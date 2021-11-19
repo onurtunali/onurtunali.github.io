@@ -207,7 +207,7 @@ plt.show()
 
 
 
-![](/img/mmd_1.png)
+![](/img/mmd/mmd_1.png)
 
 ## Implementation of "Training Generative Neural Networks via Maximum Mean Discrepancy [[2]](#references)"
 
@@ -399,7 +399,7 @@ plt.show()
 
 
 
-![](/img/mmd_2.png)
+![](/img/mmd/mmd_2.png)
 
 # References
 
