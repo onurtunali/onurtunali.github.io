@@ -4,9 +4,12 @@ title: A Brief Introduction to Machine Learning for Engineers
 categories: ML
 date:   2019-01-01 22:54:40 +0300
 excerpt: This is a rather dense book by Osvaldo Simeone which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of Pattern Recognition and Machine Learning by Christopher Bishop.
-
 ---
 
+* content
+{:toc}
+
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
 
 This is a rather dense book by *Osvaldo Simeone* which favors readers with solid background in mathematics as the title suggests. In short, its coverage can be described as a subset of *Pattern Recognition and Machine Learning* by Christopher Bishop.
 
@@ -26,7 +29,6 @@ However, it has its moments in terms of being terse, so be prepared to comb thro
 - $$\log$$ is base 2 and $$ \ln $$ is natural logarithm
 
 
-<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
 
 # 1. Introduction
 
@@ -35,6 +37,8 @@ Definition of machine learning given by [mahtematicalmonk](http://jwmi.github.io
 Classical engineering approach: Domain knowledge and in-depth analysis $$\rightarrow$$ math model $$\rightarrow$$ hand crafted solutions.
 
 ML approach: Train a generic model with substantial amount of data $$\rightarrow$$ predict result.
+
+## 1.1 Machine Learning Subfields
 
 Machine learning as a field generally is divided under three topics:
 

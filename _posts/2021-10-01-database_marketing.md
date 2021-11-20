@@ -93,9 +93,8 @@ En son rekabet avantajı argümanının temellendirilmesi şöyledir. Müşteri 
 
 Pek çok firma ürün merkezli bir yapıya sahiptir. Buna karşılık,müşteri merkezli organizasyon VePa'nın çalışması için kilit yapılardan birisidir. 
 
-<img src="/img/dm/org.png" width="650" style="border-radius:20px">
-
-**Fig:** Müşteri merkezli organizasyonun yıldız yapısı
+| <img src="/img/dm/org.png"> |
+| **Fig 1:** Müşteri merkezli organizasyonun yıldız yapısı |
 
 Firmanın kaynakları açısından değerlendirilmesi 4 faktörle yapılabilir:
 

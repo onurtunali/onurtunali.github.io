@@ -9,8 +9,7 @@ excerpt: NICE is a deep learning framework changing high dimensional complex dat
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1zNYS2LMLGz82cwd0UKZd3pzrsp1Z_t8v#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
-
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1zNYS2LMLGz82cwd0UKZd3pzrsp1Z_t8v#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
 
 NICE is a deep learning framework changing high dimensional complex data into non linear independent components. This post summarizes the paper and explains some left out mathematical concepts especially why resulting jacobian of transformation function is unit constant, how to derive it and scaling of output layer. In addition, pytorch implementation of experimental results are given.
 
@@ -81,12 +80,11 @@ $$ h = (h_{3}, h_{4}) $$
 So jacobian of $$h$$ is
 
 $$ J(h) = \frac{ \partial (h)}{\partial (x_{1}, x_{2})} = \frac{ \partial (h_{3},h_{4})}{\partial (x_{1}, x_{2})} = \begin{bmatrix}  \frac{ \partial h_{3}}{\partial x_{1} } & \frac{ \partial h_{3}}{\partial x_{2} }\\ \frac{ \partial h_{4}}{\partial x_{1} } & \frac{ \partial h_{4}}{\partial x_{2} } \end{bmatrix} \tag{4} $$
-<img src="/img/nice/der_depend.jpg" width="700">
 
-**Figure 1**: *Graphical description of how chain rule works in multivariable functions*
+| <img src="/img/nice/der_depend.jpg"> |
+| **Figure 1**: *Graphical description of how chain rule works in multivariable functions* |
 
 Figure 1 shows how to obtain partial derivative of a multivariable function with dependency graph of each function. If we plug results into (4), we end up with the following equation:
-
 
 
 $$ = \begin{bmatrix} \frac{ \partial h_{3}}{\partial h_{1}}   \frac{ \partial h_{1}}{\partial x_{1}}  +  \frac{ \partial h_{3}}{\partial h_{2}}   \frac{ \partial h_{2}}{\partial x_{1}} & \frac{ \partial h_{3}}{\partial h_{1}}   \frac{ \partial h_{1}}{\partial x_{2}}  +  \frac{ \partial h_{3}}{\partial h_{2}}   \frac{ \partial h_{2}}{\partial x_{2}} \\ \frac{ \partial h_{4}}{\partial h_{1}}   \frac{ \partial h_{1}}{\partial x_{1}}  +  \frac{ \partial h_{4}}{\partial h_{2}}   \frac{ \partial h_{2}}{\partial x_{1}} & \frac{ \partial h_{4}}{\partial h_{1}}   \frac{ \partial h_{1}}{\partial x_{2}}  +  \frac{ \partial h_{4}}{\partial h_{2}}   \frac{ \partial h_{2}}{\partial x_{2}} \end{bmatrix}$$
@@ -611,12 +609,5 @@ if __name__ == '__main__':
 
 ```
 
-<img src="/img/nice/nice_result.png" width="350">
-
-**Figure 2**: *Result of preliminary generated numbers*
-
-
-
-
-
-
+| ![](/img/nice/nice_result.png) |
+| **Figure 2**: *Result of preliminary generated numbers* |

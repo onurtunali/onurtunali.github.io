@@ -9,7 +9,7 @@ excerpt: In this post, maximum a posteriori (MAP) learning is covered in detail 
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
 
 # 2. A "Gentle" Introduction Through Linear Regression
 
@@ -86,8 +86,6 @@ Observations:
 - Even for small sample size `N=15`, MAP prevents overfitting of $$M=9$$
 
 - When sample size `N=600` and more, ML and MAP start to converge to the same results.
-
-
 
 
 ```python
@@ -250,7 +248,7 @@ plt.show()
 
 
 
-![png](/img/abitmlfe/ml_vs_map_results.png)
+| ![png](/img/abitmlfe/ml_vs_map_results.png) |
 
 
 | Previous post: [Chapter 2: Part I]({{ site.url }}/ml/2019/01/08/a-brief-introduction-to-ml_2_i.html) |  Next post: [Chapter 2: Part III]({{ site.url }}/ml/2019/01/22/a-brief-introduction-to-ml_2_iii.html) |

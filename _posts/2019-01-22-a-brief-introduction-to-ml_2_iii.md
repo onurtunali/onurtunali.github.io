@@ -9,7 +9,7 @@ excerpt: In this post, bayesian learning framework is covered in detail with bay
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
 
 # 2. A "Gentle" Introduction Through Linear Regression
 
@@ -216,7 +216,7 @@ plt.show()
 
 ```
 
-![png](/img/abitmlfe/bayesian_results.png)
+| ![png](/img/abitmlfe/bayesian_results.png) |
 
 
 ### Marginal likelihood
@@ -387,12 +387,8 @@ plt.show()
 ```
 
 
-![png](/img/abitmlfe/marginal_likelihood_1.png)
+| ![png](/img/abitmlfe/marginal_likelihood_1.png) |
 
-
-
-![png](/img/abitmlfe/marginal_likelihood_2.png)
-
-
+| ![png](/img/abitmlfe/marginal_likelihood_2.png) |
 
 | Previous post: [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html) |

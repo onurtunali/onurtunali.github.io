@@ -5,10 +5,12 @@ categories: ML
 date:   2019-01-08 22:54:40 +0300
 excerpt: Three main learning frameworks namely frequentist, bayesian and minimum description length (MDL) are studied in this chapter. In this post, maximum likelihood (ML) learning is covered.
 ---
+
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1MDTcbRc6i88Nbgt2ESo91MbH5Lq23LFj#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
+
 
 # 2. A "Gentle" Introduction Through Linear Regression
 
@@ -376,10 +378,6 @@ plt.show()
 
      Training size: 12 and test size: 3
 
-
-
-![](/img/abitmlfe/ml_results.png)
-
-
+|![](/img/abitmlfe/ml_results.png)|
 
 | Previous post: [Chapter 1]({{ site.url }}/ml/2019/01/01/a-brief-introduction-to-ml_1.html) |  Next post: [Chapter 2: Part II]({{ site.url }}/ml/2019/01/15/a-brief-introduction-to-ml_2_ii.html) |

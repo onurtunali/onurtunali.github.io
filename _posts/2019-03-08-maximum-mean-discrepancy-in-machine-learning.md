@@ -9,7 +9,8 @@ excerpt: Maximum mean discrepancy (MMD) is a kernel based statistical test used 
 * content
 {:toc}
 
-<a href="https://colab.research.google.com/drive/1ITBCzPyLZ0HlxVQX0tQ7qN2Og_aP8JrV#forceEdit=true&offline=true&sandboxMode=true" target="blank">![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)</a>
+
+|[![](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/drive/1ITBCzPyLZ0HlxVQX0tQ7qN2Og_aP8JrV#forceEdit=true&offline=true&sandboxMode=true)|[![](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)]()|
 
 
 Maximum mean discrepancy (MMD) is a kernel based statistical test used to determine whether given two distribution are the same which is proposed in [[1]](#references). MMD can be used as a loss/cost function in various machine learning algorithms such as density estimation, generative models as shown in [[2]](#references), [[3]](#references) and also in invertible neural networks utilized in inverse problems as in [[4]](#references). As opposed to generative adversarial networks (GANs) which require a solution to a complex min-max optimization problem, MMD criteria can be used as simpler discriminator.
@@ -207,7 +208,7 @@ plt.show()
 
 
 
-![](/img/mmd/mmd_1.png)
+|![](/img/mmd/mmd_1.png)|
 
 ## Implementation of "Training Generative Neural Networks via Maximum Mean Discrepancy [[2]](#references)"
 
@@ -399,7 +400,8 @@ plt.show()
 
 
 
-![](/img/mmd/mmd_2.png)
+| ![](/img/mmd/mmd_2.png) |
+| **Fig 1:** *Generated pictures by MMD examples for demonstration* |
 
 # References
 
