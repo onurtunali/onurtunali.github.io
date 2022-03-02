@@ -155,18 +155,18 @@ blockquote {
  */
 pre,
 code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+    font-size: 16px;
+    border: 0px solid $grey-color-light;
+    border-radius: 10px;
+    // background-color: #eef;
 }
 
 code {
-    padding: 1px 5px;
+    padding: 20px 9px;
 }
 
 pre {
-    padding: 8px 12px;
+    padding: 20px 20px;
     overflow-x: auto;
 
     > code {
