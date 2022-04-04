@@ -6,7 +6,9 @@ permalink: /about/
 
 ![Onur Tunali](/img/profile.jpeg){:style="width: 200px; overflow: hidden; border-radius: 60%; float: right; padding-left: 10px"}
 
-Onur Tunali is a PhD dropout who has worked as a researcher in [**Emerging Circuits and Computation Group (ECC)**](https://www.ecc.itu.edu.tr) for more than 4 years which is a leading laboratory in the field of cutting edge computational nanoelectronics and reliability of nano-crossbar arrays residing in Istanbul Technical University. His main responsibilities consisted of designing novel algorithms, implementation and comparison of existing methods and pushing the state of the art. 
+Onur Tunali is a self-taught machine learning engineer with a strong background in quantitative fields, randomized algorithms, basic computational research and has extensive track record of publications in prestigious CS journals. 
+
+Before dropping out of PhD, he has worked as a researcher in [**Emerging Circuits and Computation Group (ECC)**](https://www.ecc.itu.edu.tr) for more than 4 years which is a leading laboratory in the field of cutting edge computational nanoelectronics and reliability of nano-crossbar arrays residing in Istanbul Technical University. His main responsibilities consisted of designing novel algorithms, implementation and comparison of existing methods and pushing the state of the art. 
 
 As an educational background, he has received
  

@@ -208,7 +208,8 @@ plt.show()
 
 
 
-|![](/img/mmd/mmd_1.png)|
+| ![](/img/mmd/mmd_1.png) |
+| **Figure 1:** Comparison of 2 multivariable gaussian distritbutions with different means. |
 
 ## Implementation of "Training Generative Neural Networks via Maximum Mean Discrepancy [[2]](#references)"
 
@@ -401,7 +402,7 @@ plt.show()
 
 
 | ![](/img/mmd/mmd_2.png) |
-| **Fig 1:** *Generated pictures by MMD examples for demonstration* |
+| **Fig 2:** *Generated pictures by MMD examples for demonstration* |
 
 # References
 

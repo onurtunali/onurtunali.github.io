@@ -14,6 +14,7 @@ Here is a list of my publications in chronological order and my <a href="https:/
 
  **Note :** **C** is for conference and **J** is for journal papers:
 
+* **[J5]** Muhammed Ceylan Morgul, Luca Frontini, **Onur Tunali** et al, [Circuit Design Steps for Nano-Crossbar Arrays: Area-Delay-Power Optimization with Fault Tolerance](https://hal.archives-ouvertes.fr/hal-03065940/file/FINAL%20VERSION%20copy.pdf), *IEEE Transactions on Nanotechnology*, 2020.
 
 * **[J4]** **Onur Tunali**, Muhammed Ceylan Morgül and Mustafa Altun, [Defect Tolerant Logic Synthesis for Memristor Crossbars with Performance Evaluation](http://www.ecc.itu.edu.tr/images/b/b1/Morgul_EtAl_Integrated_Synthesis_Methodology_for_Crossbar_Arrays.pdf), *IEEE Micro*, 2018.
 

@@ -235,10 +235,10 @@ table {
   border: 1px solid #ccc;
   border-collapse: collapse;
   margin: auto;
-  padding: 5px;
   margin-bottom: 10px;
   border-collapse: collapse;
   text-align: center;
+  font-size: 1vw; 
 
 }
 
@@ -263,6 +263,7 @@ table th {
   color: white;
   font-size: .85em;
   letter-spacing: .1em;
+  padding: auto;
 
   background-color: #800000;
 }
