@@ -1,14 +1,22 @@
----
-layout: default
----
-<article class="post">
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-  </header>
+{% include header.html %}
 
-  <div class="post-content">
-    {{ content }}
+<body data-theme="{{ site.mode }}" class="notransition">
+
+  {% include navbar.html %}
+
+  <div class="wrapper">
+    <main class="page-content" aria-label="Content">
+
+      {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=4 h_max=4 %}
+
+    </main>
+
+    {% include footer.html %}
+
   </div>
+</body>
 
-</article>
+</html>

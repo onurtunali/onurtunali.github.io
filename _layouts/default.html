@@ -1,33 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
 
-    <script>
-        MathJax = {
-              tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-                   }
-                  };
-    </script>
-	<script id="MathJax-script" async
-  		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-	</script>
+{% include header.html %}
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-    <script src="https://unpkg.com/context-cards/dist/context-cards.js"></script> 
+<body data-theme="{{ site.mode }}" class="notransition">
 
-  {% include head.html %}
+  {% include navbar.html %}
 
-  <body>
+  <div class="wrapper">
+    <main aria-label="Content">
 
-    {% include header.html %}
+      {{ content }}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+    </main>
 
     {% include footer.html %}
 
-
+  </div>
+</body>
 </html>

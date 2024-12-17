@@ -1,20 +1,16 @@
 ---
-
 layout: post
 title: Perfect Writing
-categories: Writing English
+categories: etc
+tags: [writing]
 date:   2018-11-08 20:10:40 +0300
 excerpt: This post containts lists of common expressions to be used in academic writing or just in expository texts. Even though it is conjuctions oriented, there are usefull constructions for argumentation.
-
 ---
-
 
 This post contains lists of common expressions to be used in academic writing or just in expository texts. Even though it is mostly list of conjuctions, there are usefull idioms for argumentation, expanding on your topic etc.
 
 * content
 {:toc}
-
-
 
 ## Personal opinion:
 
@@ -186,6 +182,3 @@ This post contains lists of common expressions to be used in academic writing or
 - Briefly
 - To put it briefly
 - As a conclusion
-
-
-

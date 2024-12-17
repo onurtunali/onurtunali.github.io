@@ -11,3 +11,7 @@ _site
 vendor
 rafts
 _drafts
+
+_archive
+Gemfile.lock
+.DS_store

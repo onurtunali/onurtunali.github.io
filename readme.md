@@ -1,4 +1,4 @@
-# Configuration Document
+# Readme
 
 
 This website is generated through [Jekyll](https://jekyllrb.com/), a ruby gem and a static website generator. To work with jekyll, Ruby installment is necessary. In addition, best way to manage a ruby project is to use bundle due to its ability to handle dependencies. Following is the command list for the installation in Ubuntu Linux:

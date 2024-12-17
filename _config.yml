@@ -1,26 +1,72 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-title: Mixed Random Variables
-email: onur.tunali@itu.edu.tr
-description: > # this means to ignore newlines until "baseurl:"
-  This is the official website and blog of Onur Tunali which covers topics about CS,  mathematics and machine learning with in depth review of textbooks.
-paginate: 5
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-twitter_username:
-github_username: onurtunali
-scholar_username: https://scholar.google.com.tr/citations?user=tz3gufIAAAAJ&hl=en
-# Build settings
+title: Mixed Random Variables # site title
+lang: en-US # default lang
+timezone: Asia/Istanbul # set your timezone
+repo: https://github.com/onurtunali/onurtunali.github.io # site repo [optional]
+mode: dark # default theme "dark" | "light"
+description: >-
+  This is the official website and blog of Onur Tunali which covers topics about CS, mathematics and machine learning with in depth review of textbooks.
+
+# Profile settings
+author:
+  name: Onur Tunali # author name
+  username: onurtunali # general username
+  github: onurtunali # github username
+  bio: >-
+    Onur Tunali is a self-taught machine learning engineer with a strong background in quantitative fields, randomized algorithms, basic computational research and has extensive track record of publications in prestigious CS journals. 
+
+# URL settings
+url: "" #
+baseurl: ""
+permalink: /:categories/:year/:month/:day/:title:output_ext
+google_analytics: UA-142471706-1
+
+# Collection setting
+collections:
+  posts:
+    output: true
+
+# Markdown settings
 markdown: kramdown
 kramdown:
-mathjax: true
-encoding: utf-8
-plugins: [jekyll-paginate]
-# Google Analytics
-google_analytics: UA-142471706-1
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tags: []
+    description:
+  draft_default_front_matter:
+    modified:
+    tags: []
+    description:
+
+# Homepage limit posts
+number_of_posts: 4
+
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
+  - jekyll-toc
