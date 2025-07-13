@@ -22,7 +22,7 @@ source ~/.bashrc
 3) Installing bundle. Skip if bundle is present: 
 
 ```bash
-gem install bundle
+gem install bundler
 ```
 
 4) Move to site directory: 
